@@ -55,5 +55,11 @@ const app = new Vue({
     data: {
       title: 'Public Library',
       mediaList: media
+    },
+    methods: {
+        toogleDetails: function (media) {
+            media.showDetail = !media.showDetail;
+        }
     }
+
   });
