@@ -54,11 +54,15 @@ const app = new Vue({
     el: '#media-list',
     data: {
       title: 'Public Library',
-      mediaList: media
+      mediaList: media,
+      type: ''
     },
     methods: {
         toogleDetails: function (media) {
             media.showDetail = !media.showDetail;
+        },
+        filterList: function functionName() {
+            this.type = event.target.value;
         }
     }
 
