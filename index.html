@@ -13,11 +13,14 @@
     <div id="media-list">
       <h1>{{ title }}</h1>
       <select v-on:change="filterList">
-        <option>Select a type of media...</option>
+        <option value="">Select a type of media...</option>
         <option v-for="item in uniqueList">{{item}}</option>
       </select>
        <ul>
-        <li v-for="media in mediaList" v-on:click="toogleDetails(media)" v-show="type == media.type">
+        <li v-for="media in mediaList"
+            v-on:click="toogleDetails(media)"
+            v-show="type === '' || type === media.type"
+            v-bind:class="media.showDetail ? 'less': 'more'">
           <h3>{{media.title}}</h3>
           <div v-show="media.showDetail">
             <p>{{media.description}}</p>
@@ -27,7 +30,7 @@
       </ul>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script src="app.js"></script>
 </body>
 </html>
